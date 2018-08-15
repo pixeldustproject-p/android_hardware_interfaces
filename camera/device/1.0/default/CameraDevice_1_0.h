@@ -24,7 +24,6 @@
 #include "HandleImporter.h"
 
 #include <android/hardware/camera/device/1.0/ICameraDevice.h>
-#include <vendor/qti/hardware/camera/device/1.0/IQCameraDeviceCallback.h>
 #include <android/hidl/allocator/1.0/IAllocator.h>
 #include <android/hidl/memory/1.0/IMemory.h>
 #include <hidl/MQDescriptor.h>
@@ -45,7 +44,6 @@ using ::android::hardware::camera::common::V1_0::helper::HandleImporter;
 using ::android::hardware::camera::device::V1_0::CameraInfo;
 using ::android::hardware::camera::device::V1_0::CommandType;
 using ::android::hardware::camera::device::V1_0::ICameraDevice;
-using ::vendor::qti::hardware::camera::device::V1_0::IQCameraDeviceCallback;
 using ::android::hardware::camera::device::V1_0::ICameraDeviceCallback;
 using ::android::hardware::camera::device::V1_0::ICameraDevicePreviewCallback;
 using ::android::hardware::camera::device::V1_0::MemoryId;
@@ -166,7 +164,6 @@ private:
     const SortedVector<std::pair<std::string, std::string>>& mCameraDeviceNames;
 
     sp<ICameraDeviceCallback> mDeviceCallback = nullptr;
-    sp<IQCameraDeviceCallback> mQDeviceCallback = nullptr;
 
     mutable Mutex mMemoryMapLock; // gating access to mMemoryMap
                                   // must not hold mLock after this lock is acquired
